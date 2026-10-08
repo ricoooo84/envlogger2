@@ -1,0 +1,2 @@
+../Core/Src/debug.c:12:6:debug_gpio_init	4	static
+../Core/Src/debug.c:21:6:debug_gpio_toggle	4	static

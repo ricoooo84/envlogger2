@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "debug.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -85,7 +85,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   /* USER CODE BEGIN 2 */
-
+  debug_gpio_init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -93,7 +93,8 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+	  debug_gpio_toggle();
+	  HAL_Delay(1000);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

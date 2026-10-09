@@ -1,0 +1,2 @@
+../Core/Src/clock.c:11:6:clock_init	4	static
+../Core/Src/clock.c:24:6:clock_mco	4	static

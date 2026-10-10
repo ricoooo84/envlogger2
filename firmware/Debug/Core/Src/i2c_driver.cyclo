@@ -1,0 +1,7 @@
+../Core/Src/i2c_driver.c:13:13:gpio_cfg	1
+../Core/Src/i2c_driver.c:24:13:i2c_cfg	1
+../Core/Src/i2c_driver.c:32:6:i2c_init	1
+../Core/Src/i2c_driver.c:39:13:i2c_start	1
+../Core/Src/i2c_driver.c:46:21:i2c_wait_flag	4
+../Core/Src/i2c_driver.c:64:14:i2c_write_reg	5
+../Core/Src/i2c_driver.c:88:14:i2c_read_regs	9

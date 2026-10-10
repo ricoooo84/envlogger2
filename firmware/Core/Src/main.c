@@ -22,6 +22,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "debug.h"
+#include "i2c_driver.h"
+#include "clock.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -77,7 +79,7 @@ int main(void)
   /* USER CODE END Init */
 
   /* Configure the system clock */
-  SystemClock_Config();
+  //SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
 
@@ -85,7 +87,11 @@ int main(void)
 
   /* Initialize all configured peripherals */
   /* USER CODE BEGIN 2 */
-  debug_gpio_init();
+  //debug_gpio_init();
+  i2c_init();
+  clock_init();
+
+  uint8_t buf;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -93,8 +99,10 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  debug_gpio_toggle();
+
 	  HAL_Delay(1000);
+
+	  i2c_read_regs(0xD0, &buf, 1);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

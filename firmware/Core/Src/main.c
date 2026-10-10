@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "debug.h"
+#include "bme_driver.h"
 #include "i2c_driver.h"
 #include "clock.h"
 /* USER CODE END Includes */
@@ -75,7 +76,8 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+  clock_init();
+  i2c_init();
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -88,10 +90,14 @@ int main(void)
   /* Initialize all configured peripherals */
   /* USER CODE BEGIN 2 */
   //debug_gpio_init();
-  i2c_init();
-  clock_init();
 
-  uint8_t buf;
+
+  bme_t bme;
+
+  bme_cfg();
+  bme_calibrate(&bme);
+
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -99,11 +105,10 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
-	  HAL_Delay(1000);
-
-	  i2c_read_regs(0xD0, &buf, 1);
     /* USER CODE BEGIN 3 */
+
+	  bme_read(&bme);
+	  HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 }
